@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
+  <title>Nood Tayo</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/shaka-player@latest/dist/shaka-player.compiled.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest/dist/hls.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- Player -->
+    <div id="playerWrap">
+      <video id="video" controls autoplay playsinline></video>
+      <div id="playerOverlay">
+        <div class="overlay-content">
+          <div class="overlay-icon">▶</div>
+          <h2>Nood Tayo!</h2>
+          <p>Pumili ng channel para magsimula</p>
+        </div>
+      </div>
+      <div id="playerLoading" class="hidden">
+        <div class="spinner"></div>
+        <span>Loading stream...</span>
+      </div>
+      <div id="playerError" class="hidden">
+        <span id="errorMsg">Stream unavailable</span>
+        <button id="retryBtn">Retry</button>
+      </div>
+    </div>
+
+    <!-- Now playing -->
+    <div id="nowPlaying" class="hidden">
+      <div id="npInfo">
+        <img id="npLogo" src="" alt="">
+        <div id="npText">
+          <div id="npCategory" class="badge"></div>
+          <h2 id="npTitle"></h2>
+          <p id="npDescription"></p>
+        </div>
+      </div>
+      <span class="live-badge">● LIVE</span>
+    </div>
+
+    <!-- Toolbar: search + category tabs -->
+    <div id="toolbar">
+      <input type="text" id="search" placeholder="Search channels..." autocomplete="off" spellcheck="false">
+      <div id="categoryTabs"></div>
+    </div>
+
+    <!-- Channel grid -->
+    <div id="channelGrid"></div>
+  </div>
+
+  <script src="channels.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
